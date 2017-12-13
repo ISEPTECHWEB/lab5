@@ -5,7 +5,8 @@ import "../css/Choice.css";
 const Choice = (props) => (
     <li>
         {props.name}
-        <input type="number" defaultValue={props.vote} min="0" onKeyPress={onKeyPress}/>            
+        <input type="number" defaultValue={props.vote} min="0" onKeyPress={onKeyPress}/>  
+        {props.percent}%      
     </li>
 );
 
@@ -20,7 +21,8 @@ const onKeyPress = (event) => {
 Choice.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    vote: PropTypes.number
+    vote: PropTypes.number,
+    percent: PropTypes.number
 }
 
 export default Choice;
