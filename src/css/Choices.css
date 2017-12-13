@@ -1,0 +1,7 @@
+.choicesList {
+    list-style-type: circle;
+}
+
+ul {
+    list-style-position: inside;
+}
