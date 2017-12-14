@@ -6,6 +6,7 @@ import AddChoice from "./AddChoice";
 import Choices from "./Choices";
 import  defaultChoices from "./defaultChoices";
 import { choiceHelper } from '../helpers/choice-helper';
+import { ratioHelper } from '../helpers/ratio-helper';
 
 class App extends React.Component {
 
@@ -25,7 +26,7 @@ class App extends React.Component {
         </header>
         <div className="Question">QUESTION ?</div>
         
-        <Choices choices={this.state.choices}/>
+        <Choices choices={this.state.choices} updateChoices={this.updateChoices}/>
         <AddChoice addChoice={this.addChoiceToState}/>
       </div>
     );
@@ -36,5 +37,10 @@ class App extends React.Component {
 
     this.setState({choices:newChoicesList});
   };
+
+  updateChoices = (id, value) => {
+    const updatedChoices = ratioHelper.updateChoices(this.state.choices, id, value);
+    this.setState({todo: updatedChoices});
+  }
 }
 export default App;

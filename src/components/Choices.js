@@ -4,10 +4,10 @@ import '../css/Choices.css'
 
 import Choice from "./Choice";
 
-const displayChoices = (choices) => choices.map (t=> <Choice key={t.id} {...t}/>);
+const displayChoices = (props) => props.choices.map (t=> <Choice key={t.id} {...t} updateChoices={props.updateChoices}/>);
 
 const Choices = (props) => <ul className="choicesList">
-{displayChoices(props.choices)}
+{displayChoices({...props})}
 </ul>
 
 
