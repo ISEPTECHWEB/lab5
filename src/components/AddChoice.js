@@ -12,24 +12,29 @@ class AddChoice extends React.Component {
     render() {
         return (
             <div>
-                Add Choice: <input type="text" placeholder="Write your choice..." value={this.state.newChoice} onChange={this.changeName} onKeyPress={this.handleKeyPress} /> 
-                <button onClick={this.addChoice}>Add</button>           
+
+                Add Choice: <input type="text"
+                    placeholder="Write your choice..."
+                    value={this.state.newChoice}
+                    onChange={this.changeName}
+                    onKeyPress={this.handleKeyPress} />
+                <button onClick={this.addChoice}>Add</button>
             </div>
         );
     }
 
     changeName = (e) => {
-        this.setState({newChoice: e.target.value});
+        this.setState({ newChoice: e.target.value });
     }
 
     addChoice = () => {
         this.props.addChoice(this.state.newChoice)
 
-        this.setState({newChoice:''});
+        this.setState({ newChoice: '' });
     }
 
     handleKeyPress = (event) => {
-        if(event.charCode === 13){
+        if (event.charCode === 13) {
             this.addChoice();
         }
     }
